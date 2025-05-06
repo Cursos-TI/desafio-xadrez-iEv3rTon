@@ -4,6 +4,19 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
+/*
+    Loop de impressao
+    Argumentos: 
+    - numero: quantidade de repetiçoes
+    - direcao: nome da direçao do movimento
+*/
+void moverTorres(int numero, char* direcao) { 
+    if (numero > 0) {
+        printf("%s \n", direcao);
+        moverTorres(numero -1, direcao);
+    }
+}
+
 int main() {
     // Nível Novato - Movimentação das Peças
     // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
@@ -22,24 +35,13 @@ int main() {
     // Rainha: 8 casas para a esquerda
 
     printf("\nBispo se moveu para: \n");
-    for (int i=0; i < 5; i++) {
-        printf("Cima direita.\n");
-    };
+    moverTorres(5, "Cima direita."); // executao loop de impressao recussivo
 
     printf("\nTorre se moveu para: \n");
-    int i = 0;
-    while (i < 5) {
-        printf("Direita.\n");
-        i++;
-    };
+    moverTorres(5, "Direita."); // executao loop de impressao recussivo
 
     printf("\nRainha se moveu para: \n");
-    int ii = 0;
-    do {
-        printf("Esquerda.\n");
-        ii++;
-    } while (ii < 8);
-
+    moverTorres(8, "Esquerda."); // executao loop de impressao recussivo
 
     // Nível Aventureiro - Movimentação do Cavalo
     // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
@@ -47,15 +49,15 @@ int main() {
     printf("\n-------------------------");
     printf("\nCavalo se moveu para: \n");
     int cavaloMovimento01 = 0;
-    while (cavaloMovimento01 < 1) {
+    while (cavaloMovimento01 < 1) { // apenas uma execuçao
         
         int cavaloMovimento02 = 0;
-        for (int cavaloMovimento02 = 0; cavaloMovimento02 < 2; cavaloMovimento02++)
+        for (int cavaloMovimento02 = 0; cavaloMovimento02 < 2; cavaloMovimento02++) // duas execuçoes
         {
-            printf("Baixo, ");
+            printf("Cima, ");
         };
 
-        printf("Esquerda.\n");
+        printf("Direita.\n");
         cavaloMovimento01++;
     };
     
